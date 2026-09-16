@@ -14,6 +14,11 @@ __pycache__/*
 */.ipynb_checkpoints/*
 .DS_Store
 
+# ANTLR-generated tooling artifacts (regenerate with:
+# antlr4 -Dlanguage=Python3 <grammar>.g4)
+*.interp
+*.tokens
+
 # Project files
 .ropeproject
 .project
