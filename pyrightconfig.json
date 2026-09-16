@@ -1,0 +1,12 @@
+{
+  "include": ["src", "tests"],
+  "exclude": [
+    "**/CityDistancesLexer.py",
+    "**/CityDistancesParser.py",
+    "**/CityDistancesListener.py",
+    "**/__pycache__",
+    "**/.venv",
+    "build",
+    "dist"
+  ]
+}
