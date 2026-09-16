@@ -154,6 +154,30 @@ class MyListener(CityDistancesListener):
 
 
 def parse(input: str) -> tuple[Exception | None, dict[str, list[float]]]:
+    """Given an input string, parse it out into an adjacency matrix where each
+    row represents a distance between two cities. The details of the format can
+    be found in 'CityDistances.g4', but here's a short sample:
+
+        "Atlanta"   0  50 100
+        "Boston"   50   0  75
+        "Chicago" 100  75   0
+
+    The numeric part of the data must be square and symmetric. Cities can be
+    listed in either single or double quotes. Cities must be listed in strictly
+    increasing lexicographical order.
+
+    It returns a tuple of (error, data), where the error is either one of its
+    specific exceptions like SyntaxError or OutOfOrderError, or else None.
+    If it returns an exception, do not rely on the data having any particular
+    meaning. If it runs successfully, error will be None and the data will be
+    a dictionary somewhat like what follows:
+
+        {
+            "Atlanta": [0.0, 50.0, 100.0],
+            "Boston": [50.0, 0.0, 75.0],
+            "Chicago": [100.0, 75.0, 0.0]
+        }
+    """
     try:
         lexer: CityDistancesLexer = CityDistancesLexer(InputStream(input))
         lexer.removeErrorListeners()
