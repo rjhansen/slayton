@@ -36,8 +36,8 @@ jobs:
         with:
           python-version: "3.12"
       - run: python -m pip install --upgrade pip
-      - run: python -m pip install -e . pyright
-      - run: pyright
+      - run: python -m pip install -e ".[testing]" pyright
+      - run: pyright --pythonpath "$(command -v python)"
 
   build:
     name: Build and validate package
